@@ -1,20 +1,24 @@
-MovieGo
+MovieGO
 
-MovieGo is an Android application that allows users to discover and explore a vast collection of movies. Built using Kotlin and utilizing The Movie Database (TMDb) API, this app provides a seamless and immersive movie experience.
-Features
+MovieGO is an Android application that allows users to discover and explore a vast collection of movies. Built using Kotlin and utilizing The Movie Database (TMDb) API, this app provides a seamless and immersive movie experience. AKA kinopoisk na minimalkah 
+
+Features: 
 
     Discover Movies: Browse through a vast collection of movies from various genres.
+    
     Search: Search for movies by title, genre, or keywords.
+    
     Movie Details: View detailed information about each movie, including ratings, release dates, runtime, and cast.
+    
     Favorites: Save favorite movies for quick access.
+    
     User Ratings: Rate and review movies based on personal preferences.
+    
     Intuitive Interface: Enjoy a user-friendly interface that makes navigating and exploring movies a breeze.
 
-Setup Instructions
+Setup Instructions: 
 
     Clone the repository:
-
-git clone https://github.com/your-username/MovieGo.git
 
     Open the project in Android Studio.
 
