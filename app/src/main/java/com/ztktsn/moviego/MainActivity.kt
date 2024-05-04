@@ -13,18 +13,23 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivity : AppCompatActivity() { private lateinit var movieListRecyclerView: RecyclerView
+class MainActivity : AppCompatActivity() {
+    private lateinit var movieListRecyclerView: RecyclerView
     private lateinit var movieAdapter: movieAdapter
     private lateinit var searchEditText: EditText
-    private val adapter = movieAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        movieAdapter = movieAdapter(
+            onMovieClick = {
 
+            }
+        )
         searchEditText = findViewById(R.id.search)
         movieListRecyclerView = findViewById(R.id.movieRecycler)
-        movieListRecyclerView.adapter = adapter
-        movieListRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        movieListRecyclerView.adapter = movieAdapter
+        movieListRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         searchEditText.setOnEditorActionListener { v, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
@@ -39,7 +44,7 @@ class MainActivity : AppCompatActivity() { private lateinit var movieListRecycle
         movieApi.api.getMovieByName(query).enqueue(object : Callback<List<movie>> {
             override fun onResponse(call: Call<List<movie>>, response: Response<List<movie>>) {
                 if (response.isSuccessful) {
-                    adapter.submitList(response.body())
+                    movieAdapter.submitList(response.body())
                 }
             }
 
