@@ -10,12 +10,11 @@ import com.ztktsn.moviego.databinding.ItemHorizontalRecyclerBinding
 import com.ztktsn.moviego.model.movie
 
 
-class MovieAdapter(
-    private val onMovieClick: (movie) -> Unit
-) : ListAdapter<movie, MovieAdapter.ViewHolder>(movieDiffUtil()) {
+class movieAdapter(private val onMovieClick: (movie) -> Unit
+) : ListAdapter<movie, movieAdapter.ViewHolder>(movieDiffUtil()) {
 
     companion object {
-        private const val MOVIE_ADAPTER_TAG = "MovieAdapter"
+        private const val MOVIE_ADAPTER_TAG = "movieAdapter"
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -41,7 +40,7 @@ class MovieAdapter(
             with(binding) {
 
                 Glide
-                    .with(root.context)
+                    .with(movieImg.context)
                     .load("https://image.tmdb.org/t/p/original" + movie.imageUrl)
                     .placeholder(R.drawable.icon_logo)
                     .into(movieImg)

@@ -2,6 +2,7 @@ package com.ztktsn.moviego.network
 
 
 import com.ztktsn.moviego.model.movie
+import com.ztktsn.moviego.model.movieApiResponse
 import com.ztktsn.moviego.model.movieDetails
 import retrofit2.Call
 import retrofit2.http.GET

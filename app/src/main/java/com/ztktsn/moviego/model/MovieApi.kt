@@ -1,5 +1,6 @@
-package com.ztktsn.moviego.network
+package com.ztktsn.moviego.model
 
+import com.ztktsn.moviego.network.movieService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 
