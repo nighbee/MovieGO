@@ -5,4 +5,5 @@
     <color name="backgroundMain"> #212529</color>
     <color name="buttonOrange">#bb3e03</color>
     <color name="searchHint"> #495057</color>
+    <color name="bottomNavBar">#2b2d42</color>
 </resources>
