@@ -3,7 +3,7 @@ package com.ztktsn.moviego.userData
 import android.os.Parcel
 import android.os.Parcelable
 
-class user (
+class User (
     val name: String,
     val age: Int,
     val email: String,
@@ -28,12 +28,12 @@ class user (
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<user> {
-        override fun createFromParcel(parcel: Parcel): user {
-            return user(parcel)
+    companion object CREATOR : Parcelable.Creator<User> {
+        override fun createFromParcel(parcel: Parcel): User {
+            return User(parcel)
         }
 
-        override fun newArray(size: Int): Array<user ?> {
+        override fun newArray(size: Int): Array<User ?> {
             return arrayOfNulls(size)
         }
     }

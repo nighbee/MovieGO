@@ -1,14 +1,11 @@
 package com.ztktsn.moviego.room
-import android.content.Context
-import androidx.room.Room
-import androidx.room.Database
 import androidx.room.RoomDatabase
 
 abstract
-class movieDb: RoomDatabase() {
-    abstract fun movieDao(): movieEntityDao
+class MovieDB: RoomDatabase() {
+    abstract fun movieDao(): MOvieEntityDao
     companion object {
-        private var instance: movieDb? = null
+        private var instance: MovieDB? = null
         private val LOCK = Any()
 //
 //        operator fun invoke(context: Context) = Room.databaseBuilder(

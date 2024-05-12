@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ztktsn.moviego.R
 import com.ztktsn.moviego.databinding.ItemHorizontalRecyclerBinding
-import com.ztktsn.moviego.model.movie
+import com.ztktsn.moviego.model.Movie
 
 
-class movieAdapter(private val onMovieClick: (movie) -> Unit
-) : ListAdapter<movie, movieAdapter.ViewHolder>(movieDiffUtil()) {
+class MovieAdapter(private val onMovieClick: (Movie) -> Unit
+) : ListAdapter<Movie, MovieAdapter.ViewHolder>(MovieDiffUtil()) {
 
     companion object {
         private const val MOVIE_ADAPTER_TAG = "movieAdapter"
@@ -36,7 +36,7 @@ class movieAdapter(private val onMovieClick: (movie) -> Unit
         private val binding: ItemHorizontalRecyclerBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(movie: movie) {
+        fun bind(movie: Movie) {
             with(binding) {
 
                 Glide

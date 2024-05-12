@@ -2,7 +2,7 @@ package com.ztktsn.moviego.model
 
 import com.google.gson.annotations.SerializedName
 
-data class movieDetails (
+data class MovieDetails (
     val id: Int,
     val title: String,
     val overview: String,
@@ -14,7 +14,7 @@ data class movieDetails (
     val genre: String
     ) {
     companion object{
-        fun tomovie( movieApi: movieDetails)= movie(
+        fun tomovie( movieApi: MovieDetails)= Movie(
             id = movieApi.id,
             title = movieApi.title,
             shortDescription = movieApi.overview,

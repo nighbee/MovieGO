@@ -1,6 +1,6 @@
 package com.ztktsn.moviego.model
 
-import com.ztktsn.moviego.network.movieService
+import com.ztktsn.moviego.network.MovieService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 
@@ -18,10 +18,10 @@ object movieApi {
 
         .build()
 
-    val api: movieService by lazy {
+    val api: MovieService by lazy {
         Retrofit.Builder()
             .baseUrl("https://api.themoviedb.org/")
             .build()
-            .create(movieService::class.java)
+            .create(MovieService::class.java)
     }
 }

@@ -1,43 +1,57 @@
 package com.ztktsn.moviego
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import android.widget.EditText
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ztktsn.moviego.adapter.MovieAdapter
 import com.ztktsn.moviego.model.Movie
 import com.ztktsn.moviego.model.movieApi
+//import kotlinx.android.synthetic.main.fragment_home_page.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var movieListRecyclerView: RecyclerView
+class HomePageFragment : Fragment() {
     private lateinit var movieAdapter: MovieAdapter
-    private lateinit var searchEditText: EditText
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_home_page, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupRecyclerView()
+        setupSearchEditText()
+    }
+
+    private fun setupRecyclerView() {
         movieAdapter = MovieAdapter(
             onMovieClick = {
-
+                // Handle movie click
             }
         )
-        searchEditText = findViewById(R.id.search)
-        movieListRecyclerView = findViewById(R.id.movieRecycler)
-        movieListRecyclerView.adapter = movieAdapter
-        movieListRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        movieRecycler.apply {
+            adapter = movieAdapter
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        }
+    }
 
-        searchEditText.setOnEditorActionListener { v, actionId, _ ->
+    private fun setupSearchEditText() {
+        search.setOnEditorActionListener { v, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 performSearch(v.text.toString())
                 true
             } else false
         }
-
     }
 
     private fun performSearch(query: String) {
@@ -49,7 +63,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<List<Movie>>, t: Throwable) {
-                TODO("Not yet implemented")
+                // Handle failure
             }
         })
     }
