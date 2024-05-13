@@ -1,6 +1,6 @@
 package com.ztktsn.moviego.room
 
 
-interface MOvieEntityDao {
+interface MovieEntityDao {
 
 }

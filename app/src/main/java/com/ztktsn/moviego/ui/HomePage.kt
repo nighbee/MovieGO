@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,8 +17,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomePageFragment : Fragment() {
+class HomePage: Fragment() {
+    private lateinit var movieListRecyclerView: RecyclerView
     private lateinit var movieAdapter: MovieAdapter
+    private lateinit var searchEditText: EditText
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,14 +42,14 @@ class HomePageFragment : Fragment() {
                 // Handle movie click
             }
         )
-        movieRecycler.apply {
+        movieListRecyclerView.apply {
             adapter = movieAdapter
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         }
     }
 
     private fun setupSearchEditText() {
-        search.setOnEditorActionListener { v, actionId, _ ->
+        searchEditText.setOnEditorActionListener { v, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 performSearch(v.text.toString())
                 true

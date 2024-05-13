@@ -3,7 +3,7 @@ import androidx.room.RoomDatabase
 
 abstract
 class MovieDB: RoomDatabase() {
-    abstract fun movieDao(): MOvieEntityDao
+    abstract fun movieDao(): MovieEntityDao
     companion object {
         private var instance: MovieDB? = null
         private val LOCK = Any()

@@ -1,6 +1,7 @@
 package com.ztktsn.moviego
 
 import android.content.Intent
+import com.ztktsn.moviego.ui.HomePage
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.ztktsn.moviego.databinding.ActivityLoginPageBinding
@@ -15,8 +16,9 @@ class LoginPage : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.loginButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            supportFragmentManager.beginTransaction()
+                .add(R.id.fragmentContainerView, HomePage())
+                .commit()
         }
 
         binding = ActivityLoginPageBinding.inflate(layoutInflater)
