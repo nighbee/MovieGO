@@ -1,27 +1,26 @@
 package com.ztktsn.moviego.model
 
-import com.ztktsn.moviego.network.MovieService
-import okhttp3.OkHttpClient
-import retrofit2.Retrofit
+import com.google.gson.annotations.SerializedName
 
-object movieApi {
-    private val okHttpClient = OkHttpClient.Builder()
-        .addInterceptor { chain ->
-            val request = chain.request()
 
-            val newRequest = request.newBuilder()
-                .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNGY3YzlhOTdjMTgwZDdmNmVkNWIxZWM1YTI4YzhhZSIsInN1YiI6IjY2MWNlYzk0OTMxZWExMDE2MzY0ZjdhMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.924GfSS6yD-yi8uwdY1dSmjzqbCdZnGNJY3kAfGBupk")
-                .build()
+data class MovieApi(
+    val id: String,
+    val title: String,
+    val overview: String,
+    @SerializedName("vote_average") val voteAverage: String,
+    @SerializedName("poster_path") val posterPath: String,
+    @SerializedName("release_date") val releaseDate: String
+) {
 
-            chain.proceed(newRequest)
-        }
-
-        .build()
-
-    val api: MovieService by lazy {
-        Retrofit.Builder()
-            .baseUrl("https://api.themoviedb.org/")
-            .build()
-            .create(MovieService::class.java)
+    companion object {
+        fun toMovie(MovieApi: MovieApi) = Movie(
+            id = MovieApi.id,
+            title = MovieApi.title,
+            shortDescription = MovieApi.overview,
+            rating = MovieApi.voteAverage.toDouble(),
+            imageUrl = MovieApi.posterPath,
+            duration = 100,
+            genre = arrayListOf(Movie.Genre.COMEDY)
+        )
     }
 }

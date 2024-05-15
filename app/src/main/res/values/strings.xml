@@ -9,4 +9,6 @@
     <string name="searchHint">Search anything</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="error_title">Error Happened\n</string>
+    <string name="error_message">Error Happened, Try later \n</string>
 </resources>

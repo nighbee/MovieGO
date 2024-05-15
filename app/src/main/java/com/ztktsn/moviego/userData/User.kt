@@ -1,5 +1,6 @@
 package com.ztktsn.moviego.userData
 
+import android.content.Context
 import android.os.Parcel
 import android.os.Parcelable
 
@@ -37,5 +38,4 @@ class User (
             return arrayOfNulls(size)
         }
     }
-
 }

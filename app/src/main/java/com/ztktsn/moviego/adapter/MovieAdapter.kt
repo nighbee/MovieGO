@@ -1,4 +1,5 @@
 package com.ztktsn.moviego.adapter
+
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -11,7 +12,7 @@ import com.ztktsn.moviego.model.Movie
 
 
 class MovieAdapter(private val onMovieClick: (Movie) -> Unit
-) : ListAdapter<Movie, MovieAdapter.ViewHolder>(MovieDiffUtil()) {
+) : ListAdapter<Movie, MovieAdapter.ViewHolder>(movieDiffUtil()) {
 
     companion object {
         private const val MOVIE_ADAPTER_TAG = "movieAdapter"

@@ -40,6 +40,7 @@ android {
 
 dependencies {
     implementation("androidx.room:room-ktx:2.6.1")
+    implementation("com.google.firebase:firebase-components:18.0.0")
     val fragment_version = "1.6.2"
 
     // Java language implementation
