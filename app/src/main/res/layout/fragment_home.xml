@@ -22,7 +22,9 @@
         android:id="@+id/search"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:hint="search"
+        android:hint="Search"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
         android:textColorHint="@color/searchHint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

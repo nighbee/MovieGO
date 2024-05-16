@@ -75,7 +75,7 @@ class HomeFragment : Fragment() {
 
     }
 
-// test perehoda 
+// test perehoda
 //    private val onNavigationItemSelectedListener = bottom_navigation.OnNavigationItemSelectedListener { item ->
 //        when (item.itemId) {
 //            R.id.home -> {
