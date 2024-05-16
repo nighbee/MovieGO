@@ -75,6 +75,21 @@ class HomeFragment : Fragment() {
 
     }
 
+// test perehoda 
+//    private val onNavigationItemSelectedListener = bottom_navigation.OnNavigationItemSelectedListener { item ->
+//        when (item.itemId) {
+//            R.id.home -> {
+//                loadFragment(HomeFragment())
+//                true
+//            }
+//            R.id.account -> {
+//                loadFragment(accountFragment())
+//                true
+//            }
+//            else -> false
+//        }
+
+
 //    private fun handleMovieClick(movie: Movie) {
 //        val direction =
 //            HomeFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(movie.title)
