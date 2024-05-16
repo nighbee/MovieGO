@@ -5,30 +5,30 @@
 
 
     <fragment
-        android:id="@+id/movie_list_fragment"
+        android:id="@+id/homeFragment"
         android:name="com.ztktsn.moviego.ui.HomeFragment"
         android:label="HomeFragment">
 
         <action
             android:id="@+id/action_movie_list_fragment_to_movie_details_fragment"
-            app:destination="@id/movie_details_fragment" />
+            app:destination="@id/detailedFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/movie_details_fragment"
-        android:name="com.ztktsn.moviego.ui.detailedFragment"
+        android:id="@+id/detailedFragment"
+        android:name="com.ztktsn.moviego.ui.DetailedFragment"
         android:label="DetailedFragment">
 
 
     </fragment>
 
-    <fragment
-        android:id="@+id/login_fragment"
-        android:name="com.ztktsn.moviego.ui.accountFragment">
+<!--    <fragment-->
+<!--        android:id="@+id/login_fragment"-->
+<!--        android:name="com.ztktsn.moviego.ui.accountFragment">-->
 
-        <action
-            android:id="@+id/action_accountFragment"
-            app:destination="@id/movie_list_fragment" />
-    </fragment>
+<!--        <action-->
+<!--            android:id="@+id/action_accountFragment"-->
+<!--            app:destination="@id/movie_list_fragment" />-->
+<!--    </fragment>-->
 
 </navigation>

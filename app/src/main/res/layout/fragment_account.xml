@@ -3,12 +3,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.accountFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.accountFragment"
+    android:background="@color/backgroundMain">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/accountImage"
+        app:srcCompat="@drawable/user"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center_horizontal|top"
+        />
+
     <TextView
+        android:layout_width="153dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_margin="200dp"
+        android:text="Username"
+        android:id="@+id/username"
+        android:textSize="32sp"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/bottomNavBar"
+        app:menu="@menu/bottom_navigation_menu"
+   />
+
 
 </FrameLayout>

@@ -13,7 +13,7 @@
         android:theme="@style/Theme.MovieGO"
         tools:targetApi="31">
         <activity
-            android:name=".Login"
+            android:name=".testActivity"
             android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -22,8 +22,15 @@
         </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:name=".Login"
+            android:exported="true">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+
     </application>
 
 </manifest>

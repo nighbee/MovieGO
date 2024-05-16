@@ -1,12 +1,11 @@
 package com.ztktsn.moviego
 
+
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.view.View.OnClickListener
-import android.widget.FrameLayout
 import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
+
 import com.ztktsn.moviego.databinding.ActivityLoginBinding
 import com.ztktsn.moviego.ui.HomeFragment
 import com.ztktsn.moviego.userData.User
@@ -25,7 +24,16 @@ class Login : AppCompatActivity() {
 
 
         binding.loginButton.setOnClickListener {
-            onLoginClicked()
+//            val email = emailInput.text.toString()
+//            val password = passwordInput.text.toString()
+//
+//            val intent = Intent(this, HomeFragment::class.java)
+//            intent.putExtra("email", email)
+//            intent.putExtra("password", password)
+//            startActivity(intent)
+            val fragment = HomeFragment()
+            supportFragmentManager.beginTransaction().replace(R.id.home,
+                fragment).commit()
         }
 
 //    override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,10 +76,5 @@ class Login : AppCompatActivity() {
 //            .replace(fragmentContainer.id, homeFragment)
 //            .commit()
 //    }
+        }
     }
-    fun onLoginClicked() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, HomeFragment())
-            .commit()
-    }
-}
