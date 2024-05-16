@@ -20,10 +20,11 @@ import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ztktsn.moviego.databinding.FragmentAccountBinding
+import com.ztktsn.moviego.databinding.FragmentSavedBinding
 
 
 class savedFragment : Fragment() {
-    private var _binding: FragmentAccountBinding? = null
+    private var _binding: FragmentSavedBinding? = null
     private val binding get() = _binding!!
     private lateinit var searchEditText: EditText
     private var adapter: MovieAdapter? = null
@@ -39,7 +40,7 @@ class savedFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentAccountBinding.inflate(inflater, container, false)
+        _binding = FragmentSavedBinding.inflate(inflater, container, false)
         return binding.root
 
 
