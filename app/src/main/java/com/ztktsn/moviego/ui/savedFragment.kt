@@ -1,5 +1,4 @@
 package com.ztktsn.moviego.ui
-
 import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,34 +10,20 @@ import androidx.lifecycle.ViewModelProvider
 import com.ztktsn.moviego.R
 import com.ztktsn.moviego.ViewModel.MovieViewModel
 import com.ztktsn.moviego.adapter.MovieAdapter
-import com.ztktsn.moviego.databinding.FragmentHomeBinding
 import com.ztktsn.moviego.model.Movie
 import com.ztktsn.moviego.model.MovieState
 import com.ztktsn.moviego.network.ApiClient
 import retrofit2.Callback
-import android.content.Intent
 import retrofit2.Call
 import retrofit2.Response
-
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
-import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.ztktsn.moviego.databinding.FragmentAccountBinding
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [savedFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class savedFragment : Fragment() {
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentAccountBinding? = null
     private val binding get() = _binding!!
     private lateinit var searchEditText: EditText
     private var adapter: MovieAdapter? = null
@@ -54,7 +39,7 @@ class savedFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentAccountBinding.inflate(inflater, container, false)
         return binding.root
 
 
@@ -69,9 +54,13 @@ class savedFragment : Fragment() {
             }
         )
 
-        binding.movieRecycler.adapter = adapter
+        binding.searchRecycler.adapter = adapter
 
         viewModel.fetchOfferList()
+
+        val bottomNavigationView = binding.bottomNavigation
+        bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+
 
         viewModel.movielistState.observe(viewLifecycleOwner) { state ->
             when (state) {
@@ -79,7 +68,7 @@ class savedFragment : Fragment() {
                 is MovieState.Loading -> {
                     with(binding) {
                         progressBar.isVisible = state.isLoading
-                        movieRecycler.isVisible = !state.isLoading
+                        searchRecycler.isVisible = !state.isLoading
                     }
                 }
 
@@ -117,4 +106,29 @@ class savedFragment : Fragment() {
         })
     }
 
+    private val onNavigationItemSelectedListener =
+        BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.saved -> {
+                    // No need to load HomeFragment again if already on the home page
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.home -> {
+                    loadFragment(HomeFragment())
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.account -> {
+                    loadFragment(accountFragment())
+                    return@OnNavigationItemSelectedListener true
+                }
+                else -> return@OnNavigationItemSelectedListener false
+            }
+        }
+
+    private fun loadFragment(fragment: Fragment) {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.saved, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
 }

@@ -8,14 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ztktsn.moviego.R
 import com.ztktsn.moviego.ViewModel.MovieViewModel
 import com.ztktsn.moviego.adapter.MovieAdapter
 import com.ztktsn.moviego.databinding.FragmentHomeBinding
-import com.ztktsn.moviego.model.Movie
 import com.ztktsn.moviego.model.MovieState
 import com.ztktsn.moviego.network.ApiClient
+
 
 
 class HomeFragment : Fragment() {
@@ -38,7 +38,6 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
 
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,8 +50,10 @@ class HomeFragment : Fragment() {
         )
 
         binding.movieRecycler.adapter = adapter
-
         viewModel.fetchOfferList()
+
+        val bottomNavigationView = binding.bottomNavigation
+        bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
         viewModel.movielistState.observe(viewLifecycleOwner) { state ->
             when (state) {
@@ -75,25 +76,31 @@ class HomeFragment : Fragment() {
 
     }
 
-// test perehoda
-//    private val onNavigationItemSelectedListener = bottom_navigation.OnNavigationItemSelectedListener { item ->
-//        when (item.itemId) {
-//            R.id.home -> {
-//                loadFragment(HomeFragment())
-//                true
-//            }
-//            R.id.account -> {
-//                loadFragment(accountFragment())
-//                true
-//            }
-//            else -> false
-//        }
+    // test perehoda
+     private val onNavigationItemSelectedListener =
+        BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.home -> {
+                    // No need to load HomeFragment again if already on the home page
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.saved -> {
+                    loadFragment(savedFragment())
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.account -> {
+                    loadFragment(accountFragment())
+                    return@OnNavigationItemSelectedListener true
+                }
+                else -> return@OnNavigationItemSelectedListener false
+            }
+        }
 
-
-//    private fun handleMovieClick(movie: Movie) {
-//        val direction =
-//            HomeFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(movie.title)
-//        findNavController().navigate(direction)
-//    }
+    private fun loadFragment(fragment: Fragment) {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.home, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
 
 }
