@@ -6,4 +6,10 @@
     <color name="buttonOrange">#bb3e03</color>
     <color name="searchHint"> #FFFFFFFF</color>
     <color name="bottomNavBar">#2b2d42</color>
+<<<<<<< Updated upstream
+=======
+    <color name="yellow"> #FFFF00 </color>
+    <color name="background_genre">#0989ff </color>
+    <color name="movie">#F80000</color>
+>>>>>>> Stashed changes
 </resources>
