@@ -18,6 +18,9 @@ interface MovieService {
     fun fetchActorList(): Call<ActorResponse>
 
 
+    @GET("3/movie/latest")
+    fun fetchLatestList(): Call<MovieApiResponse>
+
     @GET("3/configuration")
     fun checkApiConnection(): Call<Any>
 }

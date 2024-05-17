@@ -7,7 +7,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.ztktsn.moviego.databinding.ActivityTestBinding
 import com.ztktsn.moviego.userData.UserData
 
-class testActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
         private lateinit var binding: ActivityTestBinding
         private lateinit var navController: NavController

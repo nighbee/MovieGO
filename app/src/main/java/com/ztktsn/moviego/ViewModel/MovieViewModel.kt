@@ -61,6 +61,37 @@ import retrofit2.Response
             })
         }
 
+
+        fun fetchLatestList() {
+            _movieListState.value = MovieState.Loading(true)
+
+            service.fetchLatestList().enqueue(object : Callback<MovieApiResponse> {
+                override fun onResponse(
+                    call: Call<MovieApiResponse>,
+                    response: Response<MovieApiResponse>
+                ) {
+                    if (!response.isSuccessful) {
+                        _movieListState.value = MovieState.Error()
+                    }
+
+                    _movieListState.value = response.body()?.let {
+                        MovieState.Success(
+                            it.results.map {
+                                MovieApi.toMovie(it)
+                            }
+                        )
+                    } ?: MovieState.Error()
+
+                    _movieListState.value = MovieState.Loading(false)
+                }
+
+                override fun onFailure(call: Call<MovieApiResponse>, t: Throwable) {
+                    _movieListState.value = MovieState.Error(t.message)
+                }
+
+            })
+        }
+
         private val _apiConnectionLiveData = MutableLiveData<Response<Any>>()
         val apiConnectionLiveData: LiveData<Response<Any>> = _apiConnectionLiveData
 

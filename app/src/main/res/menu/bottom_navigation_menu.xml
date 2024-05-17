@@ -8,9 +8,9 @@
         android:id="@+id/saved"
         android:enabled="true"
         android:icon="@drawable/saved"
-        android:title="Saved"/>
+        android:title="Latest"/>
     <item android:id="@+id/account"
         android:enabled="true"
         android:icon="@drawable/login"
-        android:title="Account"/>
+        android:title="Actors"/>
 </menu>

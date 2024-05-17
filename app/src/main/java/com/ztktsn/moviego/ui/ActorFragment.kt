@@ -89,7 +89,7 @@ class ActorFragment : Fragment() {
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.saved -> {
-                    loadFragment(savedFragment())
+                    loadFragment(SavedFragment())
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.home -> {

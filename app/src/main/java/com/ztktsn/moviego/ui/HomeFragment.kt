@@ -104,7 +104,7 @@ class HomeFragment : Fragment() {
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.saved -> {
-                    loadFragment(savedFragment())
+                    loadFragment(SavedFragment())
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.account -> {

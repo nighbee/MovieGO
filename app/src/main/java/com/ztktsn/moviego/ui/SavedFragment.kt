@@ -13,13 +13,13 @@ import com.ztktsn.moviego.ViewModel.MovieViewModel
 import com.ztktsn.moviego.adapter.MovieAdapter
 import com.ztktsn.moviego.model.MovieState
 import com.ztktsn.moviego.network.ApiClient
-import android.view.inputmethod.EditorInfo
 import android.widget.EditText
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ztktsn.moviego.databinding.FragmentSavedBinding
 
 
-class savedFragment : Fragment() {
+class SavedFragment : Fragment() {
     private var _binding: FragmentSavedBinding? = null
     private val binding get() = _binding!!
     private lateinit var searchEditText: EditText
@@ -50,10 +50,11 @@ class savedFragment : Fragment() {
 //                handleMovieClick(it)
             }
         )
+        binding.latestRecycler.layoutManager = LinearLayoutManager(requireContext())
 
-        binding.searchRecycler.adapter = adapter
+        binding.latestRecycler.adapter = adapter
 
-        viewModel.fetchMovieList()
+        viewModel.fetchLatestList()
 
         val bottomNavigationView = binding.bottomNavigation
         bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
@@ -65,7 +66,7 @@ class savedFragment : Fragment() {
                 is MovieState.Loading -> {
                     with(binding) {
                         progressBar.isVisible = state.isLoading
-                        searchRecycler.isVisible = !state.isLoading
+                        latestRecycler.isVisible = !state.isLoading
                     }
                 }
 
@@ -77,31 +78,31 @@ class savedFragment : Fragment() {
                 }
             }
         }
-
-        searchEditText.setOnEditorActionListener { v, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                performSearch(v.text.toString())
-                true
-            } else false
-        }
-
-    }
-
-
-    private fun performSearch(query: String) {
-//        ApiClient.instance.
-//        getMovieByName(query).enqueue(object : Callback<List<Movie>> {
-//            override fun onResponse(call: Call<List<Movie>>, response: Response<List<Movie>>) {
-//                if (response.isSuccessful) {
-//                    adapter?.submitList(response.body())
-//                }
-//            }
 //
-//            override fun onFailure(call: Call<List<Movie>>, t: Throwable) {
-//                // Handle failure
-//            }
-//        })
+//        searchEditText.setOnEditorActionListener { v, actionId, _ ->
+//            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+//                performSearch(v.text.toString())
+//                true
+//            } else false
+//        }
+
     }
+
+
+//    private fun performSearch(query: String) {
+////        ApiClient.instance.
+////        getMovieByName(query).enqueue(object : Callback<List<Movie>> {
+////            override fun onResponse(call: Call<List<Movie>>, response: Response<List<Movie>>) {
+////                if (response.isSuccessful) {
+////                    adapter?.submitList(response.body())
+////                }
+////            }
+////
+////            override fun onFailure(call: Call<List<Movie>>, t: Throwable) {
+////                // Handle failure
+////            }
+////        })
+//    }
 
     private val onNavigationItemSelectedListener =
         BottomNavigationView.OnNavigationItemSelectedListener { item ->
