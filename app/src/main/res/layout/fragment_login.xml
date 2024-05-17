@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrationForms.LoginFragment"
+    tools:context=".RegistrationForms.ui.Login"
     android:background="@color/backgroundMain">
 
     <TextView
@@ -11,55 +12,62 @@
         android:layout_width="255dp"
         android:layout_height="44dp"
         android:layout_gravity="center_horizontal|top"
-        android:layout_marginTop="156dp"
-        android:text="Login"
         android:gravity="center"
+        android:text="Login"
         android:textColor="@color/white"
-        android:textSize="32sp" />
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="132dp" />
+
     <EditText
         android:id="@+id/emailInput"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
         android:layout_gravity="center_horizontal|top"
         android:gravity="center"
         android:hint="Email Address"
         android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="215dp" />
+
     <EditText
         android:id="@+id/passwordInput"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
         android:layout_gravity="center_horizontal|top"
         android:gravity="center"
         android:hint="Password"
         android:inputType="textPassword"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="295dp" />
 
     <Button
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|top"
-        android:layout_marginTop="420dp"
         android:backgroundTint="@color/buttonOrange"
         android:onClick="onLoginClicked"
-        android:text="Login" />
+        android:text="Login"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="376dp" />
 
     <TextView
         android:id="@+id/createAccountText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/searchHint"
-        android:text="Dont have an account?"
-        android:layout_marginTop="480dp"
+        android:layout_gravity="center_horizontal|top"
         android:gravity="center"
-        android:layout_gravity="center_horizontal|top"/>
+        android:text="Dont have an account?"
+        android:textColor="@color/searchHint"
+        tools:layout_editor_absoluteX="135dp"
+        tools:layout_editor_absoluteY="496dp" />
 
 
-
-
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
