@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ztktsn.moviego.R
 import com.ztktsn.moviego.ViewModel.MovieViewModel
@@ -44,6 +45,9 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.movieRecycler.layoutManager = LinearLayoutManager(requireContext())
+
 
         adapter = MovieAdapter(
             onMovieClick = {
