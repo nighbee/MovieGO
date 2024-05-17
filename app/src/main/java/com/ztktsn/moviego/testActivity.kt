@@ -28,11 +28,11 @@ class testActivity : AppCompatActivity() {
             val navGraph = navController.navInflater.inflate(R.navigation.navigation)
             when {
                 UserData(this).isAuthorized() -> {
-                    navGraph.setStartDestination(R.id.homeFragment)
+                    navGraph.setStartDestination(R.id.LoginFragment)
                 }
 
                 !UserData(this).isAuthorized() -> {
-                    navGraph.setStartDestination(R.id.homeFragment)
+                    navGraph.setStartDestination(R.id.LoginFragment)
                 }
             }
             navController.graph = navGraph
