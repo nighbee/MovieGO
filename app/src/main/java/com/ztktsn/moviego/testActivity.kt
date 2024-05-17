@@ -21,20 +21,18 @@ class testActivity : AppCompatActivity() {
             setupNavigation()
         }
 
-        private fun setupNavigation() {
-            val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-            navController = navHostFragment.navController
+    private fun setupNavigation() {
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
 
-            val navGraph = navController.navInflater.inflate(R.navigation.navigation)
-            when {
-                UserData(this).isAuthorized() -> {
-                    navGraph.setStartDestination(R.id.homeFragment)
-                }
+        val navGraph = navController.navInflater.inflate(R.navigation.navigation)
 
-                !UserData(this).isAuthorized() -> {
-                    navGraph.setStartDestination(R.id.homeFragment)
-                }
-            }
+        val userData = UserData(this)
+        if (userData.isAuthorized()) {
+            navGraph.setStartDestination(R.id.homeFragment)
+        } else {
+            navGraph.setStartDestination(R.id.LogingFragment)
+        }
             navController.graph = navGraph
         }
 
