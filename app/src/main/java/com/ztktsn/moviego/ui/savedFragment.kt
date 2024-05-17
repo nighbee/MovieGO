@@ -11,12 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.ztktsn.moviego.R
 import com.ztktsn.moviego.ViewModel.MovieViewModel
 import com.ztktsn.moviego.adapter.MovieAdapter
-import com.ztktsn.moviego.model.Movie
 import com.ztktsn.moviego.model.MovieState
 import com.ztktsn.moviego.network.ApiClient
-import retrofit2.Callback
-import retrofit2.Call
-import retrofit2.Response
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -119,7 +115,7 @@ class savedFragment : Fragment() {
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.account -> {
-                    loadFragment(accountFragment())
+                    loadFragment(ActorFragment())
                     return@OnNavigationItemSelectedListener true
                 }
                 else -> return@OnNavigationItemSelectedListener false

@@ -108,7 +108,7 @@ class HomeFragment : Fragment() {
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.account -> {
-                    loadFragment(accountFragment())
+                    loadFragment(ActorFragment())
                     return@OnNavigationItemSelectedListener true
                 }
                 else -> return@OnNavigationItemSelectedListener false
