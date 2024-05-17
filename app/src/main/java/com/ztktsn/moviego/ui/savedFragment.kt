@@ -1,4 +1,5 @@
 package com.ztktsn.moviego.ui
+
 import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -19,7 +20,6 @@ import retrofit2.Response
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.ztktsn.moviego.databinding.FragmentAccountBinding
 import com.ztktsn.moviego.databinding.FragmentSavedBinding
 
 
@@ -57,7 +57,7 @@ class savedFragment : Fragment() {
 
         binding.searchRecycler.adapter = adapter
 
-        viewModel.fetchOfferList()
+        viewModel.fetchMovieList()
 
         val bottomNavigationView = binding.bottomNavigation
         bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
@@ -93,18 +93,18 @@ class savedFragment : Fragment() {
 
 
     private fun performSearch(query: String) {
-        ApiClient.instance.
-        getMovieByName(query).enqueue(object : Callback<List<Movie>> {
-            override fun onResponse(call: Call<List<Movie>>, response: Response<List<Movie>>) {
-                if (response.isSuccessful) {
-                    adapter?.submitList(response.body())
-                }
-            }
-
-            override fun onFailure(call: Call<List<Movie>>, t: Throwable) {
-                // Handle failure
-            }
-        })
+//        ApiClient.instance.
+//        getMovieByName(query).enqueue(object : Callback<List<Movie>> {
+//            override fun onResponse(call: Call<List<Movie>>, response: Response<List<Movie>>) {
+//                if (response.isSuccessful) {
+//                    adapter?.submitList(response.body())
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<List<Movie>>, t: Throwable) {
+//                // Handle failure
+//            }
+//        })
     }
 
     private val onNavigationItemSelectedListener =

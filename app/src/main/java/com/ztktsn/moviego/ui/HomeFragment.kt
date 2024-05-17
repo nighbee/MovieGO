@@ -1,5 +1,6 @@
 package com.ztktsn.moviego.ui
 
+
 import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,6 +13,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ztktsn.moviego.R
 import com.ztktsn.moviego.ViewModel.MovieViewModel
 import com.ztktsn.moviego.adapter.MovieAdapter
+
 import com.ztktsn.moviego.databinding.FragmentHomeBinding
 import com.ztktsn.moviego.model.MovieState
 import com.ztktsn.moviego.network.ApiClient
@@ -50,7 +52,7 @@ class HomeFragment : Fragment() {
         )
 
         binding.movieRecycler.adapter = adapter
-        viewModel.fetchOfferList()
+        viewModel.fetchMovieList()
 
         val bottomNavigationView = binding.bottomNavigation
         bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
@@ -71,6 +73,19 @@ class HomeFragment : Fragment() {
                         .setMessage(state.message ?: getString(R.string.error_message))
                         .show()
                 }
+            }
+        }
+
+
+        viewModel.checkApiConnection()
+
+        viewModel.apiConnectionLiveData.observe(viewLifecycleOwner) { response ->
+            if (response.isSuccessful) {
+                println("Connection to API successful!")
+                viewModel.fetchMovieList()
+            } else {
+                println("Connection to API failed: ${response.code()} ${response.message()}")
+                // Handle connection error
             }
         }
 

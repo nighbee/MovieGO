@@ -13,8 +13,6 @@ data class Movie(
 ) {
 
     enum class Genre(val value: String) {
-        FANTASTIC("fantastic"),
         COMEDY("comedy"),
-        HORROR("horror")
     }
 }

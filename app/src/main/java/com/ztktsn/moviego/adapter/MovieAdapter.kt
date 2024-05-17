@@ -8,25 +8,25 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ztktsn.moviego.R
 import com.ztktsn.moviego.databinding.ItemHorizontalRecyclerBinding
+import com.ztktsn.moviego.databinding.ItemMovieBinding
 import com.ztktsn.moviego.model.Movie
 
-
-class MovieAdapter(private val onMovieClick: (Movie) -> Unit
+class MovieAdapter(
+    private val onMovieClick: (Movie) -> Unit
 ) : ListAdapter<Movie, MovieAdapter.ViewHolder>(movieDiffUtil()) {
 
     companion object {
-        private const val MOVIE_ADAPTER_TAG = "movieAdapter"
+        private const val MOVIE_ADAPTER_TAG = "MovieAdapter"
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         Log.d(MOVIE_ADAPTER_TAG, "onCreateViewHolder")
         return ViewHolder(
-            ItemHorizontalRecyclerBinding.inflate(
+            ItemMovieBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
         )
     }
-
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         Log.d(MOVIE_ADAPTER_TAG, "onBindViewHolder: $position")
@@ -34,20 +34,22 @@ class MovieAdapter(private val onMovieClick: (Movie) -> Unit
     }
 
     inner class ViewHolder(
-        private val binding: ItemHorizontalRecyclerBinding
+        private val binding: ItemMovieBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(movie: Movie) {
             with(binding) {
 
                 Glide
-                    .with(movieImg.context)
+                    .with(root.context)
                     .load("https://image.tmdb.org/t/p/original" + movie.imageUrl)
                     .placeholder(R.drawable.icon_logo)
-                    .into(movieImg)
+                    .into(movieImage)
 
-                movieName.text = movie.title
-
+                movieTitle.text = movie.title
+                movieDescription.text = movie.shortDescription
+                movieRating.text = movie.rating.toString()
+                movieGenre.text = movie.genre.first().value
 
                 root.setOnClickListener {
                     onMovieClick(movie)

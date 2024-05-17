@@ -1,6 +1,7 @@
 package com.ztktsn.moviego.network
 
 import okhttp3.OkHttpClient
+
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -22,6 +23,7 @@ object ApiClient {
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
+
 
     val instance = retrofit.create(MovieService::class.java)
 }
