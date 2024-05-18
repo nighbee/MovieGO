@@ -2,7 +2,10 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigation">
-
+<fragment
+    android:id="@+id/actorFragment"
+    android:name="com.ztktsn.moviego.ui.ActorFragment"
+    android:label="ActorFragment"></fragment>
 
     <fragment
         android:id="@+id/homeFragment"
@@ -12,6 +15,10 @@
         <action
             android:id="@+id/action_movie_list_fragment_to_movie_details_fragment"
             app:destination="@id/detailedFragment" />
+        <action
+            android:id="@+id/action_movie_list_fragment_to_saved"
+            app:destination="@id/saved" />
+
     </fragment>
 
     <fragment
@@ -47,6 +54,17 @@
         <action
             android:id="@+id/action_registration_to_login"
             app:destination="@id/LoginFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/saved"
+        android:name="com.ztktsn.moviego.ui.SavedFragment"
+        android:label="SavedFragment">
+        <action
+            android:id="@+id/action_saved_to_home"
+            app:destination="@id/homeFragment"/>
+        <action
+            android:id="@+id/action_saved_to_detailed"
+            app:destination="@id/actorFragment"/>
     </fragment>
 
 <!--    <fragment-->

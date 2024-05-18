@@ -41,6 +41,7 @@ android {
 dependencies {
     implementation("androidx.room:room-ktx:2.6.1")
     implementation("com.google.firebase:firebase-components:18.0.0")
+    implementation("androidx.activity:activity:1.8.0")
     val fragment_version = "1.6.2"
     implementation("com.squareup.picasso:picasso:2.71828")
     // Java language implementation

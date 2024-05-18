@@ -78,32 +78,7 @@ class SavedFragment : Fragment() {
                 }
             }
         }
-//
-//        searchEditText.setOnEditorActionListener { v, actionId, _ ->
-//            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-//                performSearch(v.text.toString())
-//                true
-//            } else false
-//        }
-
     }
-
-
-//    private fun performSearch(query: String) {
-////        ApiClient.instance.
-////        getMovieByName(query).enqueue(object : Callback<List<Movie>> {
-////            override fun onResponse(call: Call<List<Movie>>, response: Response<List<Movie>>) {
-////                if (response.isSuccessful) {
-////                    adapter?.submitList(response.body())
-////                }
-////            }
-////
-////            override fun onFailure(call: Call<List<Movie>>, t: Throwable) {
-////                // Handle failure
-////            }
-////        })
-//    }
-
     private val onNavigationItemSelectedListener =
         BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {

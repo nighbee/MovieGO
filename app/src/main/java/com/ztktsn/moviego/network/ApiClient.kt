@@ -26,6 +26,5 @@ object ApiClient {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-
     val instance = retrofit.create(MovieService::class.java)
 }
