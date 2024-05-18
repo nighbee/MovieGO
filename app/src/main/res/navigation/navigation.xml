@@ -4,7 +4,7 @@
     android:id="@+id/navigation">
     <fragment
         android:id="@+id/actorFragment"
-        android:name="com.ztktsn.moviego.ui.SavedFragment"
+        android:name="com.ztktsn.moviego.presentation.ui.SavedFragment"
         android:label="ActorFragment">
         <action
             android:id="@+id/action_actor_to_home"
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.ztktsn.moviego.ui.HomeFragment"
+        android:name="com.ztktsn.moviego.presentation.ui.HomeFragment"
         android:label="HomeFragment">
 
         <action
@@ -29,14 +29,14 @@
 
     <fragment
         android:id="@+id/detailedFragment"
-        android:name="com.ztktsn.moviego.ui.DetailedFragment"
+        android:name="com.ztktsn.moviego.presentation.ui.DetailedFragment"
         android:label="DetailedFragment">
     </fragment>
 
 
     <fragment
         android:id="@+id/LoginFragment"
-        android:name="com.ztktsn.moviego.ui.LoginFragment"
+        android:name="com.ztktsn.moviego.presentation.ui.LoginFragment"
         android:label="LoginFragment">
 
         <action
@@ -51,7 +51,7 @@
 
     <fragment
         android:id="@+id/registrationFragment"
-        android:name="com.ztktsn.moviego.ui.RegistrationFragment"
+        android:name="com.ztktsn.moviego.presentation.ui.RegistrationFragment"
         android:label="RegistrationFragment">
 
         <action
@@ -63,7 +63,7 @@
     </fragment>
     <fragment
         android:id="@+id/saved"
-        android:name="com.ztktsn.moviego.ui.SavedFragment"
+        android:name="com.ztktsn.moviego.presentation.ui.SavedFragment"
         android:label="SavedFragment">
         <action
             android:id="@+id/action_saved_to_home"
