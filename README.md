@@ -5,11 +5,10 @@ Features
 
     Discover Movies: Browse through a vast collection of movies from various genres.
     Search: Search for movies by title, genre, or keywords.
-    Movie Details: View detailed information about each movie, including ratings, release dates, runtime, and cast.
-    Favorites: Save favorite movies for quick access.
-    User Ratings: Rate and review movies based on personal preferences.
+    User Ratings: Review movies based on personal preferences.
     Intuitive Interface: Enjoy a user-friendly interface that makes navigating and exploring movies a breeze.
-
+    Actors: View list of pupolar actors. 
+    Authorization: create account via FireBase
 # Setup Instructions
 
     Clone the repository:
@@ -32,10 +31,12 @@ MovieGO utilizes the TMDb API to fetch movie data. The following endpoints are u
 GET /movie/popular
 
 Returns a list of popular movies. This endpoint is used to fetch the popular movies displayed on the app's home screen.
-2. Get Movie Details
+2. Get Actor List 
 
-GET /movie/{movie_id}
+ @GET("3/person/popular")
 
+3. Authorization:
+   @POST("Users/register")
 Returns detailed information about a specific movie, including its title, overview, release date, runtime, and cast.
 
 For more information about the TMDb API and its available endpoints, please refer to the official TMDb API documentation.
