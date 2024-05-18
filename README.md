@@ -8,6 +8,7 @@ Features
     User Ratings: Review movies based on personal preferences.
     Intuitive Interface: Enjoy a user-friendly interface that makes navigating and exploring movies a breeze.
     Actors: View list of pupolar actors. 
+    Now Palying: Explore the now plaing movies
     Authorization: create account via FireBase
 # Setup Instructions
 
@@ -35,8 +36,14 @@ Returns a list of popular movies. This endpoint is used to fetch the popular mov
 
  @GET("3/person/popular")
 
-3. Authorization:
-   @POST("Users/register")
+3.Get Now Playing movies
+
+ @GET("3/movie/now_playing")
+
+4. Authorization:
+   
+ @POST("Users/register")
+ 
 Returns detailed information about a specific movie, including its title, overview, release date, runtime, and cast.
 
 For more information about the TMDb API and its available endpoints, please refer to the official TMDb API documentation.
