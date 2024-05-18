@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.ztktsn.moviego" />
+                  <option name="mobileSdkAppId" value="1:853524287678:android:062bc99d18396bd52a0eef" />
+                  <option name="projectId" value="moviego-afc40" />
+                  <option name="projectNumber" value="853524287678" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

@@ -29,7 +29,7 @@ interface MovieService {
     fun fetchActorList(): Call<ActorResponse>
 
 
-    @GET("3/movie/latest")
+    @GET("3/movie/now_playing")
     fun fetchLatestList(): Call<MovieApiResponse>
 
     @GET("3/configuration")
