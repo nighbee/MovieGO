@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "853524287678",
+    "project_id": "moviego-afc40",
+    "storage_bucket": "moviego-afc40.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:853524287678:android:062bc99d18396bd52a0eef",
+        "android_client_info": {
+          "package_name": "com.ztktsn.moviego"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDM-K5haOmpYYECN2Gs_2YcrLICwr-1WRY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
