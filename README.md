@@ -1,55 +1,66 @@
-# MovieGO
+# 🎬 MovieGO
 
-MovieGO is an Android application that allows you to discover and explore a vast collection of movies. Built using Kotlin and utilizing The Movie Database (TMDb) API, this app provides a seamless and immersive movie experience, often referred to as "Kinopoisk na minimalkah" (a minimalistic version of Kinopoisk).
-Features
+MovieGO is a minimalist Android movie discovery app built with Kotlin and powered by the TMDb API. It provides a sleek and intuitive interface for browsing, searching, and exploring movies, actors, and what's currently playing in theaters.
 
-    Discover Movies: Browse through a vast collection of movies from various genres.
-    Search: Search for movies by title, genre, or keywords.
-    User Ratings: Review movies based on personal preferences.
-    Intuitive Interface: Enjoy a user-friendly interface that makes navigating and exploring movies a breeze.
-    Actors: View list of pupolar actors. 
-    Now Palying: Explore the now plaing movies
-    Authorization: create account via FireBase
-# Setup Instructions
+![MovieGO Banner](https://via.placeholder.com/800x200.png?text=MovieGO+App) <!-- Replace with actual image if available -->
 
-    Clone the repository:
+---
 
-git clone https://github.com/your-username/MovieGO.git
+## ✨ Features
 
-    Open the project in Android Studio.
+- 🔍 **Search Movies** – Find movies by title or keywords  
+- 🎞️ **Discover What's Playing** – View movies currently in theaters  
+- ⭐ **Top Rated & Popular** – Browse popular and top-rated titles  
+- 🧑‍🎤 **Famous Actors** – Explore popular actors and their filmography  
+- 🎨 **Minimal UI** – Clean, modern, and easy-to-use design
 
-    Obtain an API key from The Movie Database (TMDb) by creating a new account.
+---
 
-    In the project, locate the Constants.kt file and replace the API_KEY value with your own API key.
+## 📱 Screenshots
 
-    Build and run the app on an emulator or physical device.
+<!-- Add actual screenshots here -->
+<img src="https://via.placeholder.com/200x400.png?text=Home+Screen" width="200" />
+<img src="https://via.placeholder.com/200x400.png?text=Movie+Detail" width="200" />
+<img src="https://via.placeholder.com/200x400.png?text=Actor+Profile" width="200" />
 
-# API Documentation
+---
 
-MovieGO utilizes the TMDb API to fetch movie data. The following endpoints are used:
-1. Get Popular Movies
+## 🚀 Tech Stack
 
-GET /movie/popular
+- **Language**: [Kotlin](https://kotlinlang.org/)
+- **Framework**: Android SDK
+- **API**: [TMDb API](https://www.themoviedb.org/documentation/api)
+- **Architecture**: MVVM (Model-View-ViewModel)
+- **Libraries**:
+  - Retrofit & OkHttp – for network requests
+  - Glide – for image loading
+  - LiveData & ViewModel – for reactive UI
+  - Coroutines – for async operations
 
-Returns a list of popular movies. This endpoint is used to fetch the popular movies displayed on the app's home screen.
-2. Get Actor List 
+---
 
- @GET("3/person/popular")
+## 🔧 Setup Instructions
 
-3.Get Now Playing movies
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/nighbee/MovieGO.git
+   cd MovieGO
+Open the project in Android Studio
 
- @GET("3/movie/now_playing")
+Add your TMDb API key in the appropriate file (e.g., local.properties or constants):
 
-4. Authorization:
-   
- @POST("Users/register")
- 
-Returns detailed information about a specific movie, including its title, overview, release date, runtime, and cast.
+properties
+Копировать
+Редактировать
+TMDB_API_KEY=your_api_key_here
+Run the app on your emulator or device.
 
-For more information about the TMDb API and its available endpoints, please refer to the official TMDb API documentation.
-Contributing
+📄 License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
-# License
+🙌 Acknowledgments
+The Movie Database (TMDb) for the amazing API.
 
-This project is licensed under the MIT License.
+Open source contributors and the Android community.
+
+Made with ❤️ 
