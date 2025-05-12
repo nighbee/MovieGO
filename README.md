@@ -2,7 +2,7 @@
 
 MovieGO is a minimalist Android movie discovery app built with Kotlin and powered by the TMDb API. It provides a sleek and intuitive interface for browsing, searching, and exploring movies, actors, and what's currently playing in theaters.
 
-![MovieGO Banner](https://via.placeholder.com/800x200.png?text=MovieGO+App) <!-- Replace with actual image if available -->
+
 
 ---
 
@@ -13,15 +13,6 @@ MovieGO is a minimalist Android movie discovery app built with Kotlin and powere
 - ⭐ **Top Rated & Popular** – Browse popular and top-rated titles  
 - 🧑‍🎤 **Famous Actors** – Explore popular actors and their filmography  
 - 🎨 **Minimal UI** – Clean, modern, and easy-to-use design
-
----
-
-## 📱 Screenshots
-
-<!-- Add actual screenshots here -->
-<img src="https://via.placeholder.com/200x400.png?text=Home+Screen" width="200" />
-<img src="https://via.placeholder.com/200x400.png?text=Movie+Detail" width="200" />
-<img src="https://via.placeholder.com/200x400.png?text=Actor+Profile" width="200" />
 
 ---
 
